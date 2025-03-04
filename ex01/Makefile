@@ -1,8 +1,8 @@
-NAME = Claptrap
+NAME = Scavtrap
 CPP = c++
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.cpp=.o)))
 SRC_DIR = src
 OBJ_DIR = obj

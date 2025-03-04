@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 15:06:13 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/04 15:51:24 by ylenoel          ###   ########.fr       */
+/*   Created: 2025/03/04 15:13:59 by ylenoel           #+#    #+#             */
+/*   Updated: 2025/03/04 15:43:44 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ClapTrap.hpp"
-#include "../includes/ScavTrap.hpp"
-#include "../includes/FragTrap.hpp"
-#include "../includes/colors.hpp"
-#include <iostream>	
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
+#include <iostream>
+#include "ClapTrap.hpp"
 
-int main(void)
+class FragTrap : public ClapTrap
 {
-	FragTrap Fraggy("Fraggy");
+	public:
 
-	Fraggy.highFivesGuys();
-	std::cout << C_PASTEL_PURPLE;
-	Fraggy.attack("Clappy");
-	std::cout << C_RESET;
-	return (0);
-}
+	FragTrap(std::string name);
+	~FragTrap();
+	FragTrap& operator=(const FragTrap& other);
+
+
+	void highFivesGuys(void);
+};
+
+#endif

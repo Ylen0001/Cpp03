@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.cpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/26 16:27:03 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/02/26 17:40:13 by ylenoel          ###   ########.fr       */
+/*   Created: 2025/03/04 13:44:50 by ylenoel           #+#    #+#             */
+/*   Updated: 2025/03/04 15:49:11 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Point.hpp"
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-Point::Point() : x(0), y(0) {}
+#include "ClapTrap.hpp"
 
-Point::Point(const float x, const float y) : x(x), y(y) {}
-
-Point::Point(const Point& other) : x(other.x), y(other.y) {}
-
-Point& Point::operator=(const Point& other)
+class ScavTrap : public ClapTrap
 {
-	return;
-}
+	public:
 
-Fixed Point::get_x(void) const
-{
-	return(x);
-}
+	ScavTrap(std::string name);
+	~ScavTrap();
+	ScavTrap& operator=(const ScavTrap& other);
 
-Fixed Point::get_y(void) const
-{
-	return(y);
-}
+
+	void attack(const std::string& target);
+	void guardGate();
+	
+};
+
+std::ostream& operator<<(std::ostream& out, const ScavTrap& scavTrap);
+
+
+
+#endif

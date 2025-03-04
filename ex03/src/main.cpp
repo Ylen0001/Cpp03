@@ -6,27 +6,27 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:06:13 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/02/26 16:20:51 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/04 17:54:46 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Fixed.hpp"
+#include "../includes/ClapTrap.hpp"
+#include "../includes/ScavTrap.hpp"
+#include "../includes/FragTrap.hpp"
+#include "../includes/DiamondTrap.hpp"
+#include "../includes/colors.hpp"
 #include <iostream>	
 
 int main(void)
 {
-	Fixed		a;
-	Fixed const	b(Fixed(5.05f) * Fixed(2));
-	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	
-	std::cout << b << std::endl;
-	
-	std::cout << Fixed::max(a, b) << std::endl;
+	DiamondTrap Diamond("Diamond");
 
-	return (0);
+	Diamond.attack("Enemy");  // Utilise ScavTrap::attack()
+	Diamond.whoAmI();  // Affiche ses deux noms
+	Diamond.guardGate();  // ScavTrap
+	Diamond.highFivesGuys();  // FragTrap
+	std::cout << Diamond << std::endl;
+	
+
+    return 0;
 }
