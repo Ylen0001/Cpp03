@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:11:56 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/04 18:02:38 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/10 11:08:49 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 	DiamondTrap();
 	DiamondTrap(std::string name);
 	~DiamondTrap();
+	DiamondTrap(const DiamondTrap& other);
 	DiamondTrap& operator=(const DiamondTrap& other);
 
 	void whoAmI();

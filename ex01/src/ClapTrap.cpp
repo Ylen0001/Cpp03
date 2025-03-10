@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 10:14:11 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/04 15:02:37 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/10 11:20:29 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,18 @@ ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(1
 	std::cout << C_QUARTZ << "ClapTrap " << this->name << " is created!" << C_RESET << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap& other)
+{
+	std::cout << "ClapTrap copy constructor called!" << std::endl;
+	this->name = other.name;
+	this->energyPoints = other.energyPoints;
+	this->hitPoints = other.hitPoints;
+	this->attackDamage = other.attackDamage;
+}
+
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-	std::cout << "Copy constructor called!" << std::endl;
+	std::cout << "ClapTrap copy assignement called!" << std::endl;
 	this->attackDamage = other.get_attackDamage();
 	this->name = other.get_Name();
 	this->energyPoints = other.get_energyPoint();
@@ -95,7 +104,7 @@ void ClapTrap::set_attackDamage(const unsigned int attackDamage)
 
 void ClapTrap::attack(const std::string& target)
 {
-	if(energyPoints > 0)
+	if(energyPoints > 0 && hitPoints > 0)
 	{
 		energyPoints -= 1;
 		std::cout << name << " attacks " << target << 
@@ -124,7 +133,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if(energyPoints <= 0)
+	if(energyPoints <= 0 || hitPoints <= 0)
 	{
 		std::cout << name << " has no energy left to repair himself!" << std::endl; 
 	}

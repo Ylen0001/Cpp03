@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 13:44:50 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/04 14:51:40 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/10 10:30:10 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class ScavTrap : public ClapTrap
 
 	ScavTrap(std::string name);
 	~ScavTrap();
+	ScavTrap(const ScavTrap& other);
 	ScavTrap& operator=(const ScavTrap& other);
 
 

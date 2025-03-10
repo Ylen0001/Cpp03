@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:13:11 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/04 18:01:49 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/10 11:25:37 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,19 @@ DiamondTrap::~DiamondTrap()
 	std::cout << C_BRIGHT_RED "DiamondTrap destructor called!" C_RESET << std::endl;
 }
 
+DiamondTrap::DiamondTrap(const DiamondTrap& other)
+: ClapTrap(other), ScavTrap(other), FragTrap(other), name(other.name)
+{
+	std::cout << C_PASTEL_BLUE "DiamondTrap copy constructor called!" C_RESET << std::endl;
+	this->name = other.name;
+	this->energyPoints = other.energyPoints;
+	this->hitPoints = other.hitPoints;
+	this->attackDamage = other.attackDamage;
+}
+
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 {
-	std::cout << "DiamondTrap Copy constructor called!" << std::endl;
+	std::cout << C_PASTEL_BLUE "DiamondTrap copy assignement called!" C_RESET << std::endl;
 	this->attackDamage = other.get_attackDamage();
 	this->energyPoints = other.get_energyPoint();
 	this->hitPoints = other.get_hitPoints();
@@ -65,5 +75,5 @@ std::string DiamondTrap::get_Name() const
 
 void DiamondTrap::whoAmI()
 {
-	std::cout << "I am " << this->name << " and my ClapTrap name is " << this->ClapTrap::get_Name() << "!" << std::endl;
+	std::cout << C_PASTEL_BLUE "I am " << this->name << " and my ClapTrap name is " << this->ClapTrap::get_Name() << "!" C_RESET << std::endl;
 }

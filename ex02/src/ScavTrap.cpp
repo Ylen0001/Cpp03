@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 13:52:23 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/04 15:04:15 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/10 11:19:40 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,18 @@ ScavTrap::~ScavTrap()
 	std::cout << C_DEEP_RED << "ScavTrap " << this->get_Name() << " is destroyed!" << C_RESET << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
+{
+	std::cout << "ScavTrap copy constructor called!" << std::endl;
+	this->name = other.name;
+	this->energyPoints = other.energyPoints;
+	this->hitPoints = other.hitPoints;
+	this->attackDamage = other.attackDamage;
+}
+
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
-	std::cout << "Copy constructor called!" << std::endl;
+	std::cout << "ScavTrap copy assignement called!" << std::endl;
 	this->attackDamage = other.get_attackDamage();
 	this->name = other.get_Name();
 	this->energyPoints = other.get_energyPoint();
@@ -39,7 +48,10 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 void ScavTrap::attack(const std::string& target)
 {
-	std::cout << this->get_Name() << " blasts " << target << std::endl;
+	if(energyPoints > 0 && hitPoints > 0)
+		std::cout << this->get_Name() << " blasts " << target << std::endl;
+	else
+	std::cout << "ScavTrap's discharged. He can't attack !" << std::endl;
 }
 
 void ScavTrap::guardGate()

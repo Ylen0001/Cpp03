@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:13:09 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/04 15:49:59 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/10 11:19:33 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,21 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 
 FragTrap::~FragTrap()
 {
-	std::cout << C_DEEP_RED << "FragTrap " <<  this->name << " exploded!" << C_RESET << std::endl;
+	std::cout << C_DEEP_RED << "FragTrap " <<  this->name << " destructor called!" << C_RESET << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
+{
+	std::cout << "FragTrap copy constructor called!" << std::endl;
+	this->name = other.name;
+	this->energyPoints = other.energyPoints;
+	this->hitPoints = other.hitPoints;
+	this->attackDamage = other.attackDamage;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& other)
 {
-	std::cout << "FragTrap Copy constructor called!" << std::endl;
+	std::cout << "FragTrap Copy assignement called!" << std::endl;
 	this->attackDamage = other.get_attackDamage();
 	this->energyPoints = other.get_energyPoint();
 	this->hitPoints = other.get_hitPoints();

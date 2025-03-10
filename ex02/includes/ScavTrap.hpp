@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 13:44:50 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/04 15:49:11 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/10 10:40:28 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ScavTrap : public ClapTrap
 	ScavTrap(std::string name);
 	~ScavTrap();
 	ScavTrap& operator=(const ScavTrap& other);
-
+	ScavTrap(const ScavTrap& other);
 
 	void attack(const std::string& target);
 	void guardGate();

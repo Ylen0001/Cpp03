@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 09:59:49 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/04 14:39:03 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/10 10:27:00 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class ClapTrap
 	ClapTrap();
 	ClapTrap(std::string name);
 	~ClapTrap();
+	ClapTrap(const ClapTrap& other);
 	ClapTrap& operator=(const ClapTrap& other);
 
 	std::string		get_Name(void) const;

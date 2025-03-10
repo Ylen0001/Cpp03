@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:13:59 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/04 15:43:44 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/10 11:01:25 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class FragTrap : public ClapTrap
 
 	FragTrap(std::string name);
 	~FragTrap();
+	FragTrap(const FragTrap& other);
 	FragTrap& operator=(const FragTrap& other);
 
 
